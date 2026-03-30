@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedro Mendonça – Portfolio</title>
+  <style>
+    /* ──────────────────────────────────────────────
+       CSS Reset & Variables
+    ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #d2a8ff;
+      --text: #c9d1d9;
+      --text-dim: #8b949e;
+      --text-bright: #f0f6fc;
+      --radius: 10px;
+      --shadow: 0 4px 24px rgba(0,0,0,.45);
+      --transition: .25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ──────────────────────────────────────────────
+       Top nav / lang toggle
+    ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .75rem 2rem;
+      background: rgba(13,17,23,.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-bright);
+      letter-spacing: .02em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      color: var(--text-dim);
+      font-size: .9rem;
+      transition: color var(--transition);
+    }
+
+    nav .nav-links a:hover { color: var(--text-bright); text-decoration: none; }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      gap: .4rem;
+      margin-left: 1rem;
+    }
+
+    .lang-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: .25rem .65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: var(--accent);
+      color: #0d1117;
+      border-color: var(--accent);
+    }
+
+    /* ──────────────────────────────────────────────
+       Sections common
+    ────────────────────────────────────────────── */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section:first-of-type { padding-top: 7rem; }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -6px;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      border-radius: 3px;
+    }
+
+    /* ──────────────────────────────────────────────
+       Hero
+    ────────────────────────────────────────────── */
+    #hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 5rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .8rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      letter-spacing: .06em;
+    }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--text-bright);
+      line-height: 1.1;
+      margin-bottom: .6rem;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      margin-bottom: 1.6rem;
+      max-width: 600px;
+    }
+
+    .hero-desc {
+      color: var(--text);
+      max-width: 640px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: opacity var(--transition), transform var(--transition);
+      border: none;
+    }
+
+    .btn:hover { opacity: .85; transform: translateY(-1px); text-decoration: none; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ──────────────────────────────────────────────
+       Skills
+    ────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), var(--shadow);
+    }
+
+    .skill-card h3 {
+      color: var(--text-bright);
+      font-size: .95rem;
+      margin-bottom: .7rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .skill-card h3 .cat-icon { font-size: 1.1rem; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: .2rem .6rem;
+      border-radius: 6px;
+      font-size: .78rem;
+      font-weight: 500;
+    }
+
+    /* ──────────────────────────────────────────────
+       Projects
+    ────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+
+    .project-icon { font-size: 1.4rem; }
+
+    .project-badge {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: .15rem .55rem;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--accent2);
+    }
+
+    .project-desc {
+      color: var(--text-dim);
+      font-size: .9rem;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      font-size: .82rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    /* ──────────────────────────────────────────────
+       Contact
+    ────────────────────────────────────────────── */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-subtitle {
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .65rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: .92rem;
+      font-weight: 500;
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--surface2);
+    }
+
+    .social-icon { font-size: 1.15rem; }
+
+    /* ──────────────────────────────────────────────
+       Footer
+    ────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-dim);
+      font-size: .82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    /* ──────────────────────────────────────────────
+       Responsive
+    ────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav .nav-links { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav>
+    <span class="logo">Pedro Mendonça</span>
+    <ul class="nav-links">
+      <li><a href="#about"   data-i18n="nav-about">Sobre</a></li>
+      <li><a href="#skills"  data-i18n="nav-skills">Habilidades</a></li>
+      <li><a href="#projects" data-i18n="nav-projects">Projetos</a></li>
+      <li><a href="#contact" data-i18n="nav-contact">Contato</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn"        onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="about">
+    <span class="hero-tag" data-i18n="hero-tag">🎓 Engenharia de Software · UFES</span>
+    <h1 class="hero-name">Pedro&nbsp;<span>Mendonça</span></h1>
+    <p class="hero-subtitle" data-i18n="hero-subtitle">
+      Desenvolvedor de Software · Mobile, Web &amp; Blockchain
+    </p>
+    <p class="hero-desc" data-i18n="hero-desc">
+      Estudante de Engenharia de Software na UFES, apaixonado por criar soluções elegantes
+      em C, Java, Swift, TypeScript, Solidity e muito mais. Experiência com mobile (React Native &amp; Expo),
+      web (Angular), blockchain (Solidity/EVM) e algoritmos clássicos.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects" data-i18n="cta-projects">Ver Projetos</a>
+      <a class="btn btn-outline" href="#contact"  data-i18n="cta-contact">Contato</a>
+      <a class="btn btn-outline" href="https://github.com/pedromendonca2" target="_blank" rel="noopener">
+        GitHub ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <h2 class="section-title" data-i18n="skills-title">Habilidades</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3><span class="cat-icon">📱</span> <span data-i18n="skill-mobile">Mobile</span></h3>
+        <div class="tags">
+          <span class="tag">React Native</span>
+          <span class="tag">Expo</span>
+          <span class="tag">Swift</span>
+          <span class="tag">iOS</span>
+          <span class="tag">TypeScript</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="cat-icon">🌐</span> <span data-i18n="skill-web">Web</span></h3>
+        <div class="tags">
+          <span class="tag">Angular</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="cat-icon">⛓️</span> <span data-i18n="skill-blockchain">Blockchain</span></h3>
+        <div class="tags">
+          <span class="tag">Solidity</span>
+          <span class="tag">EVM</span>
+          <span class="tag">Uniswap V4</span>
+          <span class="tag">Smart Contracts</span>
+          <span class="tag">Hardhat</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="cat-icon">⚙️</span> <span data-i18n="skill-systems">Sistemas / Algoritmos</span></h3>
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">Java</span>
+          <span class="tag">Python</span>
+          <span class="tag">Grafos</span>
+          <span class="tag">Estruturas de Dados</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="cat-icon">🛠️</span> <span data-i18n="skill-devops">DevOps &amp; Ferramentas</span></h3>
+        <div class="tags">
+          <span class="tag">Git</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Jest</span>
+          <span class="tag">TypeDoc</span>
+          <span class="tag">ESLint</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects">
+    <h2 class="section-title" data-i18n="proj-title">Projetos em Destaque</h2>
+    <div class="projects-grid">
+
+      <!-- LiftUp -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">LiftUp</div>
+            <span class="project-badge">React Native · Expo</span>
+          </div>
+          <span class="project-icon">🏋️</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-liftup">
+          Aplicativo mobile de academia desenvolvido com React Native e Expo.
+          Conta com backend Node.js, 22 testes automatizados (Jest), CI/CD, Docker e
+          documentação gerada com TypeDoc. Suporta Android, iOS e Web.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Jest</span>
+            <span class="tag">Docker</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/liftup" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Nemesis -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Nemesis – <span data-i18n="proj-nemesis-title">Portfólio de Compositores</span></div>
+            <span class="project-badge">Angular · TypeScript</span>
+          </div>
+          <span class="project-icon">🎼</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-nemesis">
+          Site web que exibe uma lista de compositores clássicos com informações detalhadas,
+          de acordo com o perfil do usuário. Containerizado com Docker e servido via Node.js.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">Angular</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Docker</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/nemesis" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- KipuBank V3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">KipuBank V3</div>
+            <span class="project-badge">Solidity · Blockchain</span>
+          </div>
+          <span class="project-icon">🏦</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-kipu">
+          Vault multi-asset em Solidity onde todos os depósitos são convertidos e contabilizados em USDC
+          via Uniswap V4. Suporta ERC-20 e ETH nativos, com limites por usuário e globais.
+          Integração com Chainlink, Universal Router e Permit2.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">Solidity</span>
+            <span class="tag">Uniswap V4</span>
+            <span class="tag">Chainlink</span>
+            <span class="tag">ERC-20</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/KipuBankV3" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Pac-Man -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Pac-Man <span data-i18n="proj-pacman-title">em C</span></div>
+            <span class="project-badge">C · <span data-i18n="proj-pacman-badge">Alocação Dinâmica</span></span>
+          </div>
+          <span class="project-icon">👾</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-pacman">
+          Implementação do clássico Pac-Man em C, com gerenciamento manual de memória via alocação
+          dinâmica e heap. Demonstra domínio de ponteiros, listas encadeadas e estruturas de dados em C.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">Malloc/Free</span>
+            <span class="tag">Heap</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/Pac-man-alocacao-dinamica-" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Hackatruck -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">HackaTruck – IBM</div>
+            <span class="project-badge">Swift · iOS</span>
+          </div>
+          <span class="project-icon">🚀</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-hackatruck">
+          Desenvolvimento de aplicações iOS em Swift durante o programa HackaTruck da IBM,
+          com foco em IoT e desenvolvimento mobile. Abrange múltiplas aulas práticas
+          de UIKit e frameworks Apple.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">Swift</span>
+            <span class="tag">iOS</span>
+            <span class="tag">IBM</span>
+            <span class="tag">IoT</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/Hackatruck" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Dijkstra -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Dijkstra &amp; <span data-i18n="proj-dijkstra-title">Grafos</span></div>
+            <span class="project-badge">C · <span data-i18n="proj-dijkstra-badge">Algoritmos</span></span>
+          </div>
+          <span class="project-icon">🗺️</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-dijkstra">
+          Implementação do algoritmo de Dijkstra para caminho mínimo em grafos ponderados,
+          desenvolvido em C. Parte do estudo avançado de Teoria e Busca em Grafos (TBO).
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">Grafos</span>
+            <span class="tag">Algoritmos</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/Dijkstra" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Compiladores -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title" data-i18n="proj-compiladores-title">Compiladores</div>
+            <span class="project-badge">Java · <span data-i18n="proj-compiladores-badge">Compiladores</span></span>
+          </div>
+          <span class="project-icon">🔧</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-compiladores">
+          Projeto de compilador desenvolvido em Java como parte da disciplina de Compiladores da UFES.
+          Inclui análise léxica, sintática e semântica de uma linguagem de programação.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Léxico</span>
+            <span class="tag">Parser</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/Compiladores" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Data Structure -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title" data-i18n="proj-ds-title">Estruturas de Dados</div>
+            <span class="project-badge">C · Árvore-B</span>
+          </div>
+          <span class="project-icon">🌳</span>
+        </div>
+        <p class="project-desc" data-i18n="proj-ds">
+          Implementações de estruturas de dados em C, incluindo Árvore-B, listas encadeadas,
+          pilhas, filas e estruturas para sistemas de gerenciamento de arquivos e bancos de dados.
+        </p>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">Árvore-B</span>
+            <span class="tag">Listas</span>
+            <span class="tag">Heap</span>
+          </div>
+          <a class="project-link" href="https://github.com/pedromendonca2/Data_Structure" target="_blank" rel="noopener">
+            Ver repositório ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <h2 class="section-title" data-i18n="contact-title">Contato</h2>
+    <p class="contact-subtitle" data-i18n="contact-subtitle">
+      Quer conversar sobre um projeto, oportunidade ou só trocar uma ideia? Me chame!
+    </p>
+    <div class="social-grid">
+      <a class="social-link" href="https://www.linkedin.com/in/pedro-henrique-mendon%C3%A7a-23932426a" target="_blank" rel="noopener">
+        <span class="social-icon">💼</span> LinkedIn
+      </a>
+      <a class="social-link" href="mailto:ph8simoes4@gmail.com">
+        <span class="social-icon">✉️</span> ph8simoes4@gmail.com
+      </a>
+      <a class="social-link" href="https://github.com/pedromendonca2" target="_blank" rel="noopener">
+        <span class="social-icon">🐙</span> GitHub
+      </a>
+      <a class="social-link" href="https://wa.me/5527999046516" target="_blank" rel="noopener">
+        <span class="social-icon">📲</span> WhatsApp
+      </a>
+      <a class="social-link" href="https://instagram.com/pedro_mendonca027" target="_blank" rel="noopener">
+        <span class="social-icon">📸</span> Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <p data-i18n="footer">© 2024 Pedro Mendonça · Feito com ❤️ e HTML puro</p>
+  </footer>
+
+  <!-- ─── i18n ─── -->
+  <script>
+    const translations = {
+      pt: {
+        'nav-about':    'Sobre',
+        'nav-skills':   'Habilidades',
+        'nav-projects': 'Projetos',
+        'nav-contact':  'Contato',
+        'hero-tag':     '🎓 Engenharia de Software · UFES',
+        'hero-subtitle': 'Desenvolvedor de Software · Mobile, Web & Blockchain',
+        'hero-desc':    'Estudante de Engenharia de Software na UFES, apaixonado por criar soluções elegantes em C, Java, Swift, TypeScript, Solidity e muito mais. Experiência com mobile (React Native & Expo), web (Angular), blockchain (Solidity/EVM) e algoritmos clássicos.',
+        'cta-projects': 'Ver Projetos',
+        'cta-contact':  'Contato',
+        'skills-title': 'Habilidades',
+        'skill-mobile': 'Mobile',
+        'skill-web':    'Web',
+        'skill-blockchain': 'Blockchain',
+        'skill-systems': 'Sistemas / Algoritmos',
+        'skill-devops': 'DevOps & Ferramentas',
+        'proj-title':   'Projetos em Destaque',
+        'proj-liftup':  'Aplicativo mobile de academia desenvolvido com React Native e Expo. Conta com backend Node.js, 22 testes automatizados (Jest), CI/CD, Docker e documentação gerada com TypeDoc. Suporta Android, iOS e Web.',
+        'proj-nemesis-title': 'Portfólio de Compositores',
+        'proj-nemesis': 'Site web que exibe uma lista de compositores clássicos com informações detalhadas, de acordo com o perfil do usuário. Containerizado com Docker e servido via Node.js.',
+        'proj-kipu':    'Vault multi-asset em Solidity onde todos os depósitos são convertidos e contabilizados em USDC via Uniswap V4. Suporta ERC-20 e ETH nativos, com limites por usuário e globais. Integração com Chainlink, Universal Router e Permit2.',
+        'proj-pacman-title': 'em C',
+        'proj-pacman-badge': 'Alocação Dinâmica',
+        'proj-pacman': 'Implementação do clássico Pac-Man em C, com gerenciamento manual de memória via alocação dinâmica e heap. Demonstra domínio de ponteiros, listas encadeadas e estruturas de dados em C.',
+        'proj-hackatruck': 'Desenvolvimento de aplicações iOS em Swift durante o programa HackaTruck da IBM, com foco em IoT e desenvolvimento mobile. Abrange múltiplas aulas práticas de UIKit e frameworks Apple.',
+        'proj-dijkstra-title': 'Grafos',
+        'proj-dijkstra-badge': 'Algoritmos',
+        'proj-dijkstra': 'Implementação do algoritmo de Dijkstra para caminho mínimo em grafos ponderados, desenvolvido em C. Parte do estudo avançado de Teoria e Busca em Grafos (TBO).',
+        'proj-compiladores-title': 'Compiladores',
+        'proj-compiladores-badge': 'Compiladores',
+        'proj-compiladores': 'Projeto de compilador desenvolvido em Java como parte da disciplina de Compiladores da UFES. Inclui análise léxica, sintática e semântica de uma linguagem de programação.',
+        'proj-ds-title': 'Estruturas de Dados',
+        'proj-ds':      'Implementações de estruturas de dados em C, incluindo Árvore-B, listas encadeadas, pilhas, filas e estruturas para sistemas de gerenciamento de arquivos e bancos de dados.',
+        'contact-title': 'Contato',
+        'contact-subtitle': 'Quer conversar sobre um projeto, oportunidade ou só trocar uma ideia? Me chame!',
+        'footer': '© 2024 Pedro Mendonça · Feito com ❤️ e HTML puro',
+      },
+      en: {
+        'nav-about':    'About',
+        'nav-skills':   'Skills',
+        'nav-projects': 'Projects',
+        'nav-contact':  'Contact',
+        'hero-tag':     '🎓 Software Engineering · UFES',
+        'hero-subtitle': 'Software Developer · Mobile, Web & Blockchain',
+        'hero-desc':    'Software Engineering student at UFES, passionate about building elegant solutions in C, Java, Swift, TypeScript, Solidity and more. Experience with mobile (React Native & Expo), web (Angular), blockchain (Solidity/EVM), and classic algorithms.',
+        'cta-projects': 'View Projects',
+        'cta-contact':  'Contact',
+        'skills-title': 'Skills',
+        'skill-mobile': 'Mobile',
+        'skill-web':    'Web',
+        'skill-blockchain': 'Blockchain',
+        'skill-systems': 'Systems / Algorithms',
+        'skill-devops': 'DevOps & Tools',
+        'proj-title':   'Featured Projects',
+        'proj-liftup':  'Fitness mobile app built with React Native and Expo. Features a Node.js backend, 22 automated tests (Jest), CI/CD, Docker, and auto-generated documentation with TypeDoc. Supports Android, iOS and Web.',
+        'proj-nemesis-title': 'Composers Portfolio',
+        'proj-nemesis': 'Web app displaying a list of classical composers with detailed information based on user type. Containerized with Docker and served via Node.js.',
+        'proj-kipu':    'Multi-asset Solidity vault where all deposits are converted and tracked in USDC via Uniswap V4. Supports ERC-20 tokens and native ETH, with per-user and global caps. Integrates Chainlink, Universal Router and Permit2.',
+        'proj-pacman-title': 'in C',
+        'proj-pacman-badge': 'Dynamic Allocation',
+        'proj-pacman': 'Classic Pac-Man implementation in C with manual memory management via dynamic allocation and heap. Demonstrates mastery of pointers, linked lists, and data structures in C.',
+        'proj-hackatruck': 'iOS app development in Swift during IBM's HackaTruck program, focused on IoT and mobile development. Covers multiple hands-on sessions with UIKit and Apple frameworks.',
+        'proj-dijkstra-title': 'Graphs',
+        'proj-dijkstra-badge': 'Algorithms',
+        'proj-dijkstra': 'Implementation of Dijkstra's shortest-path algorithm for weighted graphs in C. Part of an advanced study of Graph Theory and Search (TBO).',
+        'proj-compiladores-title': 'Compilers',
+        'proj-compiladores-badge': 'Compilers',
+        'proj-compiladores': 'Compiler project developed in Java as part of the Compilers course at UFES. Includes lexical, syntactic, and semantic analysis of a programming language.',
+        'proj-ds-title': 'Data Structures',
+        'proj-ds':      'Data structure implementations in C, including B-Trees, linked lists, stacks, queues, and structures for file management and database systems.',
+        'contact-title': 'Contact',
+        'contact-subtitle': 'Want to talk about a project, opportunity, or just say hi? Reach out!',
+        'footer': '© 2024 Pedro Mendonça · Built with ❤️ and plain HTML',
+      },
+    };
+
+    let currentLang = 'pt';
+
+    function setLang(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+    }
+  </script>
+
+</body>
+</html>

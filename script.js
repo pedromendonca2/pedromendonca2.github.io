@@ -49,7 +49,9 @@ function setLanguage(lang) {
         el.classList.remove("fade");
       }, FADE_DURATION_MS);
     } else {
-      el.classList.remove("fade");
+      setTimeout(() => {
+        el.classList.remove("fade");
+      }, FADE_DURATION_MS);
     }
   });
   buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.lang === lang));

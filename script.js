@@ -35,6 +35,7 @@ const translations = {
 
 const buttons = document.querySelectorAll(".lang-switch button");
 const elements = document.querySelectorAll("[data-i18n]");
+const FADE_TRANSITION_DURATION_MS = 90;
 
 function setLanguage(lang) {
   const dict = translations[lang];
@@ -46,7 +47,7 @@ function setLanguage(lang) {
       setTimeout(() => {
         el.textContent = dict[key];
         el.classList.remove("fade");
-      }, 90);
+      }, FADE_TRANSITION_DURATION_MS);
     } else {
       el.classList.remove("fade");
     }

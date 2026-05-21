@@ -1,67 +1,57 @@
 const translations = {
   pt: {
     title: "Olá! Eu sou o Pedro.",
-    subtitle: "Estudante de Ciência da Computação (7º período) e Engenheiro de IA na Ease Saúde.",
-    chip1: "Engenharia de IA",
-    chip2: "Ciência da Computação",
-    chip3: "Ease Saúde",
+    subtitle: "Desenvolvedor focado em experiências web modernas, acessíveis e interativas.",
+    chip1: "✨ UI Interativa",
+    chip2: "📱 Design Responsivo",
+    chip3: "📊 Dados & Visualização",
     aboutTitle: "Sobre",
     aboutText:
-      "Trabalho com soluções de IA, focado em transformar dados em produtos inteligentes. Gosto de construir sistemas úteis e bem documentados.",
-    experienceTitle: "Experiência",
-    experienceRole: "Engenheiro de IA",
-    experienceCompany: "Ease Saúde",
+      "Crio interfaces elegantes com HTML, CSS e JavaScript, combinando performance, estética e boa experiência para quem usa. Também aplico Python para análise e visualização de dados com NumPy e Matplotlib.",
+    skillsTitle: "Habilidades",
     contactTitle: "Contato",
-    contactText: "Disponível para conversar sobre projetos, pesquisa e oportunidades.",
-    contactEmail: "contato@exemplo.com",
+    contactText: "Disponível para conversar sobre projetos, colaborações e oportunidades.",
+    contactEmail: "ph8simoes4@gmail.com",
+    linkedinText: "🔗 LinkedIn",
     footer: "© 2026 Pedro Mendonça",
   },
-  en: {
-    title: "Hi! I'm Pedro.",
-    subtitle: "Computer Science student (7th semester) and AI Engineer at Ease Saúde.",
-    chip1: "AI Engineering",
-    chip2: "Computer Science",
-    chip3: "Ease Saúde",
-    aboutTitle: "About",
+  fr: {
+    title: "Salut ! Je suis Pedro.",
+    subtitle: "Développeur axé sur des expériences web modernes, accessibles et interactives.",
+    chip1: "✨ UI interactive",
+    chip2: "📱 Design responsive",
+    chip3: "📊 Données & visualisation",
+    aboutTitle: "À propos",
     aboutText:
-      "I work on AI solutions, focused on turning data into intelligent products. I like building useful, well-documented systems.",
-    experienceTitle: "Experience",
-    experienceRole: "AI Engineer",
-    experienceCompany: "Ease Saúde",
+      "Je crée des interfaces élégantes en HTML, CSS et JavaScript en combinant performance, esthétique et expérience utilisateur. J'utilise aussi Python pour l'analyse et la visualisation de données avec NumPy et Matplotlib.",
+    skillsTitle: "Compétences",
     contactTitle: "Contact",
-    contactText: "Open to conversations about projects, research, and opportunities.",
-    contactEmail: "contact@example.com",
-    footer: "© 2026 Pedro Mendonça",
-  },
-  de: {
-    title: "Hallo! Ich bin Pedro.",
-    subtitle: "Informatikstudent (7. Semester) und KI-Ingenieur bei Ease Saúde.",
-    chip1: "KI-Engineering",
-    chip2: "Informatik",
-    chip3: "Ease Saúde",
-    aboutTitle: "Über mich",
-    aboutText:
-      "Ich arbeite an KI-Lösungen und verwandle Daten in intelligente Produkte. Ich baue gerne nützliche, gut dokumentierte Systeme.",
-    experienceTitle: "Erfahrung",
-    experienceRole: "KI-Ingenieur",
-    experienceCompany: "Ease Saúde",
-    contactTitle: "Kontakt",
-    contactText: "Offen für Gespräche über Projekte, Forschung und Chancen.",
-    contactEmail: "kontakt@beispiel.de",
+    contactText: "Disponible pour discuter de projets, collaborations et opportunités.",
+    contactEmail: "ph8simoes4@gmail.com",
+    linkedinText: "🔗 LinkedIn",
     footer: "© 2026 Pedro Mendonça",
   },
 };
 
 const buttons = document.querySelectorAll(".lang-switch button");
 const elements = document.querySelectorAll("[data-i18n]");
+const FADE_DURATION_MS = 250;
 
 function setLanguage(lang) {
   const dict = translations[lang];
   if (!dict) return;
   elements.forEach((el) => {
     const key = el.getAttribute("data-i18n");
+    el.classList.add("fade");
     if (dict[key]) {
-      el.textContent = dict[key];
+      setTimeout(() => {
+        el.textContent = dict[key];
+        el.classList.remove("fade");
+      }, FADE_DURATION_MS);
+    } else {
+      setTimeout(() => {
+        el.classList.remove("fade");
+      }, FADE_DURATION_MS);
     }
   });
   buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.lang === lang));

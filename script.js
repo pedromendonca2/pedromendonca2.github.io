@@ -35,7 +35,7 @@ const translations = {
 
 const buttons = document.querySelectorAll(".lang-switch button");
 const elements = document.querySelectorAll("[data-i18n]");
-const FADE_DURATION_MS = 90;
+const FADE_DURATION_MS = 250;
 
 function setLanguage(lang) {
   const dict = translations[lang];

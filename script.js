@@ -13,7 +13,7 @@ const translations = {
     experienceCompany: "Ease Saúde",
     contactTitle: "Contato",
     contactText: "Disponível para conversar sobre projetos, pesquisa e oportunidades.",
-    contactEmail: "contato@exemplo.com",
+    contactEmail: "mendonca.phsm@gmail.com",
     footer: "© 2026 Pedro Mendonça",
   },
   en: {
@@ -30,7 +30,7 @@ const translations = {
     experienceCompany: "Ease Saúde",
     contactTitle: "Contact",
     contactText: "Open to conversations about projects, research, and opportunities.",
-    contactEmail: "contact@example.com",
+    contactEmail: "mendonca.phsm@gmail.com",
     footer: "© 2026 Pedro Mendonça",
   },
   de: {
@@ -47,7 +47,7 @@ const translations = {
     experienceCompany: "Ease Saúde",
     contactTitle: "Kontakt",
     contactText: "Offen für Gespräche über Projekte, Forschung und Chancen.",
-    contactEmail: "kontakt@beispiel.de",
+    contactEmail: "mendonca.phsm@gmail.com",
     footer: "© 2026 Pedro Mendonça",
   },
 };

@@ -1,63 +1,306 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pedro Mendonça | Portfolio</title>
+  <meta name="theme-color" content="#080a12" />
+  <meta name="description" content="Portfólio de Pedro Henrique Mendonça, engenheiro de IA e estudante de Ciência da Computação." />
+  <meta property="og:title" content="Pedro Mendonça — AI Engineer" />
+  <meta property="og:description" content="Engenharia de IA, machine learning e software que transforma dados em produto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pedromendonca2.github.io/" />
+  <meta property="og:image" content="https://pedromendonca2.github.io/assets/hero-ai.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://pedromendonca2.github.io/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <title>Pedro Mendonça — AI Engineer</title>
 </head>
 <body>
-  <header class="container">
-    <nav class="nav">
-      <div class="logo">Pedro Mendonça</div>
-      <div class="lang-switch">
-        <button data-lang="pt" class="active">PT</button>
-        <button data-lang="en">EN</button>
-        <button data-lang="de">DE</button>
+  <a class="skip-link" href="#conteudo" data-i18n="skipLink">Ir para o conteúdo</a>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header" id="topo">
+    <div class="container nav-wrap">
+      <a class="brand" href="#topo" aria-label="Pedro Mendonça — início">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>Pedro<span class="brand-dot">.</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav" data-i18n-aria="menuOpen">
+        <span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#sobre" data-i18n="navAbout">Sobre</a>
+        <a href="#experiencia" data-i18n="navExperience">Experiência</a>
+        <a href="#projetos" data-i18n="navProjects">Projetos</a>
+        <a href="#contato" data-i18n="navContact">Contato</a>
+      </nav>
+
+      <div class="lang-switch" aria-label="Selecionar idioma">
+        <button type="button" data-lang="pt" class="active" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1 data-i18n="title">Olá! Eu sou o Pedro.</h1>
-      <p data-i18n="subtitle">
-        Estudante de Ciência da Computação (7º período) e Engenheiro de IA na Ease Saúde.
-      </p>
-      <div class="chips">
-        <span data-i18n="chip1">Engenharia de IA</span>
-        <span data-i18n="chip2">Ciência da Computação</span>
-        <span data-i18n="chip3">Ease Saúde</span>
+  <main id="conteudo">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-i18n="heroEyebrow">Engenharia de IA • Vitória, ES</span>
+        </div>
+
+        <h1 id="hero-title" data-i18n-html="heroTitle">
+          Eu construo inteligência que <span>vira produto.</span>
+        </h1>
+
+        <p class="hero-lead" data-i18n="heroLead">
+          Transformo dados, modelos e código em experiências úteis — da ideia ao software funcionando.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projetos">
+            <span data-i18n="heroProjects">Explorar projetos</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" /></svg>
+          </a>
+          <a class="button button-ghost" href="mailto:mendonca.phsm@gmail.com">
+            <span data-i18n="heroContact">Vamos conversar</span>
+          </a>
+        </div>
+
+        <div class="hero-footnote">
+          <span class="mono">AI ENGINEER</span>
+          <span aria-hidden="true">/</span>
+          <span data-i18n="heroStudy">Ciência da Computação • 7º período</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" data-reveal-delay="120">
+        <div class="art-frame" id="hero-art">
+          <img src="assets/hero-ai.webp" width="1400" height="896" alt="Escultura de dados abstrata em tons azuis e violetas" data-i18n-alt="heroArtAlt" fetchpriority="high" />
+          <div class="art-shade" aria-hidden="true"></div>
+          <div class="art-label art-label-top" aria-hidden="true">
+            <span>01</span>
+            <strong>DATA / ML</strong>
+          </div>
+          <div class="art-label art-label-bottom" aria-hidden="true">
+            <span class="signal"></span>
+            BUILD · LEARN · SHIP
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#sobre" aria-label="Rolar para a seção Sobre">
+        <span data-i18n="scroll">Role para descobrir</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <section class="section about" id="sobre">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">01 — <span data-i18n="aboutKicker">SOBRE</span></p>
+          <h2 data-i18n-html="aboutTitle">Curiosidade técnica.<br /><span>Visão de produto.</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="about-lead" data-i18n="aboutLead">
+              Sou Pedro, engenheiro de IA e estudante de Ciência da Computação. Gosto do ponto em que pesquisa, engenharia e experiência do usuário se encontram.
+            </p>
+            <p data-i18n="aboutBody">
+              Meu trabalho é tirar ideias do papel: entender o problema, organizar os dados, experimentar modelos e construir a camada de software que coloca tudo em uso. Valorizo soluções claras, testáveis e bem documentadas.
+            </p>
+          </div>
+
+          <div class="principles reveal" data-reveal-delay="100">
+            <article>
+              <span class="principle-number">01</span>
+              <div>
+                <h3 data-i18n="principleOneTitle">Pensar antes de modelar</h3>
+                <p data-i18n="principleOneBody">Bons dados e um problema bem definido vêm primeiro.</p>
+              </div>
+            </article>
+            <article>
+              <span class="principle-number">02</span>
+              <div>
+                <h3 data-i18n="principleTwoTitle">Construir para ser usado</h3>
+                <p data-i18n="principleTwoBody">Tecnologia só cria valor quando encontra pessoas.</p>
+              </div>
+            </article>
+            <article>
+              <span class="principle-number">03</span>
+              <div>
+                <h3 data-i18n="principleThreeTitle">Evoluir com evidência</h3>
+                <p data-i18n="principleThreeBody">Testar, medir, aprender e melhorar continuamente.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="skills-grid reveal">
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">✦</span>
+            <p class="mono">AI & DATA</p>
+            <h3 data-i18n="skillAi">Inteligência & dados</h3>
+            <ul><li>Python</li><li>Machine Learning</li><li>XGBoost</li><li>pandas</li><li>scikit-learn</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">⌘</span>
+            <p class="mono">SOFTWARE</p>
+            <h3 data-i18n="skillSoftware">Produto & software</h3>
+            <ul><li>TypeScript</li><li>JavaScript</li><li>React Native</li><li>Node.js</li><li>APIs REST</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon" aria-hidden="true">◇</span>
+            <p class="mono">TOOLING</p>
+            <h3 data-i18n="skillTools">Infra & qualidade</h3>
+            <ul><li>Git</li><li>Docker</li><li>PostgreSQL</li><li>Jest</li><li>CI/CD</li></ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 data-i18n="aboutTitle">Sobre</h2>
-      <p data-i18n="aboutText">
-        Trabalho com soluções de IA, focado em transformar dados em produtos inteligentes. Gosto de
-        construir sistemas úteis e bem documentados.
-      </p>
-    </section>
+    <section class="section experience" id="experiencia">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="section-kicker">02 — <span data-i18n="experienceKicker">TRAJETÓRIA</span></p>
+            <h2 data-i18n-html="experienceTitle">Aprender fazendo.<br /><span>Entregar aprendendo.</span></h2>
+          </div>
+          <p class="heading-note" data-i18n="experienceNote">Uma trajetória guiada por problemas reais e vontade de construir.</p>
+        </div>
 
-    <section class="section">
-      <h2 data-i18n="experienceTitle">Experiência</h2>
-      <div class="card">
-        <h3 data-i18n="experienceRole">Engenheiro de IA</h3>
-        <p data-i18n="experienceCompany">Ease Saúde</p>
+        <div class="timeline reveal">
+          <article class="timeline-item">
+            <div class="timeline-date"><span data-i18n="current">ATUAL</span></div>
+            <div class="timeline-marker"><span></span></div>
+            <div class="timeline-content">
+              <p class="mono">EASE SAÚDE</p>
+              <h3 data-i18n="experienceRole">Engenheiro de IA</h3>
+              <p data-i18n="experienceBody">Desenvolvimento de soluções de inteligência artificial aplicadas a produtos e processos de saúde.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date"><span data-i18n="inProgress">EM CURSO</span></div>
+            <div class="timeline-marker"><span></span></div>
+            <div class="timeline-content">
+              <p class="mono">COMPUTER SCIENCE</p>
+              <h3 data-i18n="educationTitle">Ciência da Computação</h3>
+              <p data-i18n="educationBody">7º período, aprofundando fundamentos de software, dados e inteligência artificial.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 data-i18n="contactTitle">Contato</h2>
-      <p data-i18n="contactText">Disponível para conversar sobre projetos, pesquisa e oportunidades.</p>
-      <div class="contact">
-        <a href="mailto:mendonca.phsm@gmail.com" data-i18n="contactEmail">mendonca.phsm@gmail.com</a>
+    <section class="section projects" id="projetos">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="section-kicker">03 — <span data-i18n="projectsKicker">PROJETOS SELECIONADOS</span></p>
+            <h2 data-i18n-html="projectsTitle">Do conceito ao<br /><span>repositório.</span></h2>
+          </div>
+          <p class="heading-note" data-i18n="projectsNote">Projetos que combinam engenharia, dados e construção de produto.</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card project-liftup reveal">
+            <div class="project-info">
+              <div class="project-topline">
+                <span class="project-index">01</span>
+                <span class="project-type" data-i18n="liftupType">APP MOBILE • FULL STACK</span>
+              </div>
+              <h3>LiftUp</h3>
+              <p data-i18n="liftupBody">Aplicativo fitness para criar, organizar e acompanhar treinos. Uma experiência mobile completa, apoiada por API, autenticação, persistência e testes.</p>
+              <ul class="tags"><li>React Native</li><li>Expo</li><li>Node.js</li><li>PostgreSQL</li></ul>
+              <a class="project-link" href="https://github.com/pedromendonca2/liftup" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="viewRepository">Ver repositório</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 14 14 6M8 6h6v6" /></svg>
+              </a>
+            </div>
+            <div class="project-visual liftup-visual" aria-hidden="true">
+              <div class="phone">
+                <div class="phone-status"><span>9:41</span><i></i></div>
+                <p class="phone-overline">YOUR TRAINING</p>
+                <strong>Ready to<br />lift up?</strong>
+                <div class="workout-row active"><span>A</span><div><b>Upper body</b><small>6 exercises</small></div><em>→</em></div>
+                <div class="workout-row"><span>B</span><div><b>Lower body</b><small>5 exercises</small></div><em>→</em></div>
+                <div class="phone-tabs"><i></i><i></i><i></i></div>
+              </div>
+              <span class="visual-caption">MOBILE EXPERIENCE</span>
+            </div>
+          </article>
+
+          <article class="project-card project-tiresias reveal">
+            <div class="project-info">
+              <div class="project-topline">
+                <span class="project-index">02</span>
+                <span class="project-type" data-i18n="tiresiasType">MACHINE LEARNING • DATA</span>
+              </div>
+              <h3>Tiresias</h3>
+              <p data-i18n="tiresiasBody">Pipeline de dados e machine learning para prever aluguéis residenciais na Grande Vitória, da coleta em múltiplas fontes à validação e inferência do modelo.</p>
+              <ul class="tags"><li>Python</li><li>XGBoost</li><li>Web Scraping</li><li>Data Science</li></ul>
+              <a class="project-link" href="https://github.com/ia-ufes/2026-1-projeto-grupo-14" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="viewRepository">Ver repositório</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 14 14 6M8 6h6v6" /></svg>
+              </a>
+            </div>
+            <div class="project-visual tiresias-visual" aria-hidden="true">
+              <div class="data-panel">
+                <div class="data-head"><span>PREDICTION / RENT</span><i>LIVE MODEL</i></div>
+                <div class="data-value"><small>ESTIMATED VALUE</small><strong>R$ 2.840</strong><span>↗ 8.4%</span></div>
+                <svg class="chart" viewBox="0 0 520 190" preserveAspectRatio="none">
+                  <defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8c7bff" stop-opacity=".38"/><stop offset="1" stop-color="#8c7bff" stop-opacity="0"/></linearGradient></defs>
+                  <path class="chart-grid" d="M0 30H520M0 80H520M0 130H520M0 180H520" />
+                  <path class="chart-area" d="M0 160 C55 155 70 115 120 125 S190 95 225 105 S280 55 325 75 S390 35 425 50 S480 17 520 25 V190 H0Z" />
+                  <path class="chart-line" d="M0 160 C55 155 70 115 120 125 S190 95 225 105 S280 55 325 75 S390 35 425 50 S480 17 520 25" />
+                  <circle cx="425" cy="50" r="5" />
+                </svg>
+                <div class="data-foot"><span>VITÓRIA</span><span>7 CITIES</span><span>XGBOOST</span></div>
+              </div>
+              <span class="visual-caption">DATA → DECISION</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contato">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-orbit" aria-hidden="true"><span></span><span></span><i></i></div>
+          <p class="section-kicker">04 — <span data-i18n="contactKicker">CONTATO</span></p>
+          <h2 data-i18n-html="contactTitle">Tem uma ideia em mente?<br /><span>Vamos construí-la.</span></h2>
+          <p data-i18n="contactBody">Estou disponível para conversar sobre projetos, pesquisa, tecnologia e boas oportunidades.</p>
+          <a class="contact-email" href="mailto:mendonca.phsm@gmail.com">
+            <span>mendonca.phsm@gmail.com</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" /></svg>
+          </a>
+          <div class="social-links">
+            <a href="https://github.com/pedromendonca2" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+            <a href="https://www.linkedin.com/in/pedro-henrique-mendon%C3%A7a-23932426a" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+            <a href="https://wa.me/5527999046516" target="_blank" rel="noopener noreferrer">WhatsApp <span>↗</span></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <span data-i18n="footer">© 2026 Pedro Mendonça</span>
+  <footer class="site-footer">
+    <div class="container">
+      <a class="brand footer-brand" href="#topo"><span class="brand-mark" aria-hidden="true">P</span><span>Pedro<span class="brand-dot">.</span></span></a>
+      <p><span data-i18n="footerMade">Projetado e construído com intenção.</span> <span>© <span id="year">2026</span></span></p>
+      <a class="back-top" href="#topo"><span data-i18n="backTop">Voltar ao topo</span> ↑</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

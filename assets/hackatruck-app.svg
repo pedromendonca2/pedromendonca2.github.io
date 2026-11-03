@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="title desc">
+  <title id="title">Prévia de um aplicativo iOS desenvolvido em Swift</title>
+  <desc id="desc">Tela de aplicativo em um iPhone com cartões de recursos e assistente inteligente.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102044"/>
+      <stop offset="1" stop-color="#4f8dff"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#e7efff"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#07142f" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="900" height="700" rx="36" fill="url(#background)"/>
+  <circle cx="130" cy="120" r="180" fill="#74d8ff" opacity=".16"/>
+  <circle cx="770" cy="580" r="230" fill="#b879ff" opacity=".18"/>
+  <g filter="url(#shadow)" transform="translate(292 42)">
+    <rect width="316" height="616" rx="44" fill="#101522" stroke="#90b8ff" stroke-opacity=".45" stroke-width="4"/>
+    <rect x="14" y="14" width="288" height="588" rx="34" fill="url(#screen)"/>
+    <rect x="106" y="26" width="104" height="22" rx="11" fill="#101522"/>
+    <text x="34" y="84" fill="#667795" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">HACKATRUCK LAB</text>
+    <text x="34" y="125" fill="#101522" font-family="Arial, sans-serif" font-size="30" font-weight="700">Olá, Pedro</text>
+    <text x="34" y="151" fill="#667795" font-family="Arial, sans-serif" font-size="14">O que vamos construir hoje?</text>
+    <rect x="34" y="184" width="248" height="116" rx="20" fill="#1e5fe0"/>
+    <circle cx="240" cy="220" r="33" fill="#73dcff" opacity=".8"/>
+    <path d="M225 220h30M240 205v30" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+    <text x="54" y="224" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="700">Assistente IA</text>
+    <text x="54" y="251" fill="#d9e7ff" font-family="Arial, sans-serif" font-size="12">Ideias prontas para testar</text>
+    <text x="34" y="344" fill="#101522" font-family="Arial, sans-serif" font-size="16" font-weight="700">Módulos do projeto</text>
+    <g fill="#fff" stroke="#d7e2f5">
+      <rect x="34" y="366" width="116" height="96" rx="16"/>
+      <rect x="166" y="366" width="116" height="96" rx="16"/>
+      <rect x="34" y="478" width="116" height="72" rx="16"/>
+      <rect x="166" y="478" width="116" height="72" rx="16"/>
+    </g>
+    <g fill="#276ce3">
+      <circle cx="62" cy="397" r="13"/>
+      <circle cx="194" cy="397" r="13"/>
+      <circle cx="62" cy="507" r="13"/>
+      <circle cx="194" cy="507" r="13"/>
+    </g>
+    <g fill="#40516f" font-family="Arial, sans-serif" font-size="11" font-weight="700">
+      <text x="52" y="435">Câmera</text><text x="184" y="435">Chat</text>
+      <text x="52" y="536">Dados</text><text x="184" y="536">Nuvem</text>
+    </g>
+    <path d="M75 578h166" stroke="#b6c8e5" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="48" y="625" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">SWIFT · MOBILE · AI</text>
+</svg>

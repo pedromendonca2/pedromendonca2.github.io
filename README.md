@@ -18,6 +18,8 @@ Site estático responsivo construído com HTML, CSS e JavaScript, sem dependênc
 
 - [LiftUp](https://github.com/pedromendonca2/liftup) — aplicativo fitness full stack com React Native, Expo, Node.js e PostgreSQL.
 - [Tiresias](https://github.com/ia-ufes/2026-1-projeto-grupo-14) — pipeline de dados e machine learning para predição de aluguéis residenciais.
+- [HackaTruck](https://hackatruck.com.br/) — programa de inovação com foco em desenvolvimento mobile, nuvem e IA aplicada.
+- [TOV Adv](https://tovadv.com.br/) — website institucional para escritório de advocacia.
 
 Os códigos desses projetos vivem em repositórios próprios. As pastas locais `LiftUp/` e `tiresias/` não fazem parte da aplicação do portfólio.
 

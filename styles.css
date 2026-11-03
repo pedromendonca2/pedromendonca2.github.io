@@ -1052,6 +1052,30 @@ svg {
   background-size: 42px 42px, 42px 42px, auto, auto;
 }
 
+.hackatruck-visual {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(91, 196, 255, 0.35), transparent 32%),
+    radial-gradient(circle at 80% 75%, rgba(167, 106, 255, 0.28), transparent 34%),
+    linear-gradient(135deg, #12213d, #1f3d7a 55%, #5aa5ff);
+}
+
+.tov-visual {
+  background:
+    radial-gradient(circle at 25% 18%, rgba(255, 214, 153, 0.3), transparent 30%),
+    radial-gradient(circle at 78% 82%, rgba(180, 135, 78, 0.28), transparent 35%),
+    linear-gradient(140deg, #17100a, #3a2a1d 60%, #5a4330);
+}
+
+.project-badge {
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
 .data-panel {
   position: relative;
   z-index: 2;

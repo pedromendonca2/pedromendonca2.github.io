@@ -28,6 +28,8 @@ Os códigos desses projetos vivem em repositórios próprios. As pastas locais `
 ```text
 .
 ├── assets/
+│   ├── hackatruck-app.svg
+│   ├── tov-website.svg
 │   └── hero-ai.webp
 ├── index.html
 ├── styles.css
